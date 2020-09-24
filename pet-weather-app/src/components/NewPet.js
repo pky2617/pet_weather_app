@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import axios from "axios";
 import getLocations from "../api/Api";
 import { getCityLocation } from "../api/Api";
-import Location from "./Location";
+
 import { SHELTER_API_URL } from "../config/config";
 const Container = styled.div`
   margin-top: 15px;
@@ -177,7 +177,11 @@ class NewPet extends Component {
           </label>
 
           <br />
-          <button type="submit"> Save Pet</button>
+          <br />
+          <button align="center" type="submit">
+            {" "}
+            Save Pet
+          </button>
         </form>
       </Container>
     );
