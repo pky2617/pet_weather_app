@@ -20,7 +20,7 @@ class App extends Component {
               <Route path="/" exact component={Home} exact />
               <Route path="/pets/new" exact component={NewPet} />
               <Route path="/pets" exact component={Home} />
-              <Route path="/pets/:id" exact component={PetDetails} />
+              <Route path="/pets/:id/:loc" exact component={PetDetails} />
               <Route component={Error} />
             </Switch>
           </div>

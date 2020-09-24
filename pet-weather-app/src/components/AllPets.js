@@ -7,6 +7,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { SHELTER_API_URL } from "../config/config";
 
 class AllPets extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class AllPets extends Component {
   }
 
   callAPI() {
-    fetch("https://pet-shelter-2020.herokuapp.com/pets", {
+    fetch(`${SHELTER_API_URL}pets`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -60,6 +61,9 @@ class AllPets extends Component {
                 Location
               </TableCell>
               <TableCell align="right" width="50px">
+                Location Key
+              </TableCell>
+              <TableCell align="right" width="50px">
                 View Details
               </TableCell>
             </TableRow>
@@ -73,8 +77,9 @@ class AllPets extends Component {
                 <TableCell align="right">{pet.type}</TableCell>
                 <TableCell align="right">{pet.breed}</TableCell>
                 <TableCell align="right">{pet.location}</TableCell>
+                <TableCell align="right">{pet.location_key}</TableCell>
                 <TableCell align="right">
-                  <Link to={`/pets/${pet.id}`}>View</Link>
+                  <Link to={`/pets/${pet.id}/${pet.location_key}`}>View</Link>
                 </TableCell>
               </TableRow>
             ))}
